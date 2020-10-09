@@ -1,3 +1,17 @@
+// visits counter
+var count = document.querySelector("#count");
+
+updateVisitCount();
+
+function updateVisitCount(){
+    fetch("https://api.countapi.xyz/update/muss-portfolio/folio/?amount=1")
+		.then(res => res.json())
+		.then(res => {
+        count.innerHTML = res.value;
+    });
+}
+
+
 /*
 	Astral by HTML5 UP
 	html5up.net | @ajlkn
@@ -211,13 +225,4 @@
 
 })(jQuery);
 
-// visits counter
-const count = document.querySelector("#count");
 
-updateVisitCount();
-
-function updateVisitCount(){
-    fetch("https://api.countapi.xyz/update/countingVisits/MussPortfolio/?amount=1").then(res => res.json()).then(res => {
-        count.innerHTML = res.value;
-    })
-}
